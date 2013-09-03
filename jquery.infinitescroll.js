@@ -517,7 +517,18 @@
 			this.options.loading.finished();
             return this._error('destroy');
         },
-
+	  // start from 1 element
+        restart: function infscr_destroy() {
+            this.options.state.currPage = 1;
+            this.options.state.isDuringAjax = false;
+            this.options.state.isInvalidPage = false;
+            this.options.state.isDestroyed = false;
+            this.options.state.isDone = false; // For when it goes all the way through the archive.
+            this.options.state.isPaused = false;
+            this.options.state.isBeyondMaxPage = false;
+            this._binding('bind');
+            return this._error('resatrt');
+        },
         // Set pause value to false
         pause: function infscr_pause() {
             this._pausing('pause');
