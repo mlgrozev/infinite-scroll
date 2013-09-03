@@ -517,8 +517,8 @@
 			this.options.loading.finished();
             return this._error('destroy');
         },
-	  // start from 1 element
-        restart: function infscr_destroy() {
+ 	// Restart from 1 element
+        restart: function infscr_restart() {
             this.options.state.currPage = 1;
             this.options.state.isDuringAjax = false;
             this.options.state.isInvalidPage = false;
@@ -527,8 +527,9 @@
             this.options.state.isPaused = false;
             this.options.state.isBeyondMaxPage = false;
             this._binding('bind');
-            return this._error('resatrt');
+            return this._pausing('resume');
         },
+
         // Set pause value to false
         pause: function infscr_pause() {
             this._pausing('pause');
